@@ -9,7 +9,7 @@
   ### after receiving the email from HEFICED. This makes ###
   ### it more simple to automate something with it.      ###
   ##########################################################
-  ### MANY THANKS TO KAROLIS FOR YOUR HELP THAT YOU HAVE  ###
+  ### MANY THANKS TO KAROLIS FOR YOUR HELP THAT YOU HAVE ###
   ###           INSPIRED ME TO DO THIS! ♡                ###
   ##########################################################
 
