@@ -39,8 +39,8 @@
 
       if (preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $indexFrom, $ipMatch)) {
 
-         // Now you have extracted the reported IPs and can something with it.
-         // For example writing email, save this in a database or block this IP in your system.
+         // Now you have extracted the reported IPs and can do something with it.
+         // For example writing an email, save this in a database or block this IP in your system.
          // I have used this crawler to grab the repoted IPs, saved it in a database and blocked it in my own firewall. Because I use HEFICED as IP provider for my hosting.
 
          $reportedIP = $ipMatch[0];
