@@ -18,6 +18,7 @@
   $emailPassword = "password";
   $emailServerAdress = "server.address.com";
   $emailServerPort = "143";
+  $abuseMail = "abuse@heficed.com";
 
   // open
   $emailConnection = imap_open ("{".$emailServerAdress.":".$emailServerPort."/notls}INBOX", "$emailUser", "$emailPassword");
@@ -35,15 +36,33 @@
       $indexHeader = imap_headerinfo( $emailConnection, $indexProcess );
 
       // get from object array
-      $indexFrom = $indexHeader->subject;
+      $indexSubject = $indexHeader->subject;
 
-      if (preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $indexFrom, $ipMatch)) {
+      // get from object array
+      $indexFrom = $indexHeader->from;
 
-         // Now you have extracted the reported IPs and can do something with it.
-         // For example writing an email, save this in a database or block this IP in your system.
-         // I have used this crawler to grab the repoted IPs, saved it in a database and blocked it in my own firewall. Because I use HEFICED as IP provider for my hosting.
+      // process headers
+      for( $idx = 0; $idx < count($indexFrom); $idx++ )
+      {
+          // get object
+          $fromData = $indexFrom[ $idx ];
 
-         $reportedIP = $ipMatch[0];
+          // get email from
+          $fromEmail = $fromData->mailbox . "@" . $fromData->host;
+
+          if ($fromEmail == $abuseMail) {
+
+            if (preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $indexSubject, $ipMatch)) {
+
+               // Now you have extracted the reported IPs and can something with it.
+               // For example writing email, save this in a database or block this IP in your system.
+               // I have used this crawler to grab the repoted IPs, saved it in a database and blocked it in my own firewall. Because I use HEFICED as IP provider for my hosting.
+
+               $reportedIP = $ipMatch[0];
+
+            }
+
+          }
 
       }
 
