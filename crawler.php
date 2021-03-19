@@ -48,7 +48,7 @@
       }
 
     // delete message
-    #imap_delete( $emailConnection, $indexProcess );
+    imap_delete( $emailConnection, $indexProcess );
     }
 
     // expunge deleted messages
