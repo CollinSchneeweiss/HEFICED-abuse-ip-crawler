@@ -31,6 +31,9 @@ Edit the downloaded or self created crawler PHP file. You have to edit this line
   
   If you use the standard mail server settings you do not have to change this line because 143 is the standard IMAP port.\
   ```$emailServerPort = "143";```
+  
+  With the last config option you can set from which sender are the reports should come from. In this case just from this sender the crawler would accept reports and will do any         actions. This prevents that no one is abusing the crawler while sending fake abuse reports as email to your abuse mailbox. The standard value for it is **abuse@heficed.com**.\
+  ```$abuseMail = "abuse@heficed.com";```
  
 That's all which you have to edit in the config of the crawler file. The PHP file will connect to your second email mailbox after the trigger and will grab all reported IPs.
 
