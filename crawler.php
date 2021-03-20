@@ -27,10 +27,10 @@
   $emailHeader = imap_headers( $emailConnection );
 
   // get message count
-  $emailCouter = imap_mailboxmsginfo( $emailConnection );
+  $emailCounter = imap_mailboxmsginfo( $emailConnection );
 
   // process messages
-  for( $indexProcess = 1; $indexProcess <= $emailCouter->Nmsgs; $indexProcess++  )
+  for( $indexProcess = 1; $indexProcess <= $emailCounter->Nmsgs; $indexProcess++  )
   {
       // get header info
       $indexHeader = imap_headerinfo( $emailConnection, $indexProcess );
